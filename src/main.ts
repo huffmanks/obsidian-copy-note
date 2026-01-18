@@ -23,9 +23,12 @@ export default class CopyNotePlugin extends Plugin {
       const actionContainer = view.containerEl.querySelector(".view-actions");
 
       if (actionContainer && !actionContainer.querySelector(".copy-note-button")) {
-        const button = actionContainer.createEl("a", {
-          cls: ["view-action", "copy-note-button"],
-          attr: { "aria-label": "Copy entire note" },
+        const button = actionContainer.createEl("div", {
+          cls: ["view-action", "clickable-icon", "copy-note-button"],
+          attr: {
+            "aria-label": "Copy entire note",
+            "data-tooltip-position": "bottom",
+          },
         });
 
         setIcon(button, "copy");
@@ -44,7 +47,7 @@ export default class CopyNotePlugin extends Plugin {
       try {
         const content = await this.app.vault.read(activeFile);
         await navigator.clipboard.writeText(content);
-        new Notice("Note content copied!");
+        new Notice("Note content copied!", 3000);
       } catch (err) {
         new Notice("Error copying note");
         console.error(err);
