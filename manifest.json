@@ -1,0 +1,10 @@
+{
+  "id": "obsidian-copy-note",
+  "name": "Copy Note",
+  "version": "1.0.0",
+  "minAppVersion": "0.15.0",
+  "description": "Adds a button to the file header to copy the entire file content to the clipboard.",
+  "author": "huffmanks",
+  "authorUrl": "https://github.com/huffmanks/obsidian-copy-note",
+  "isDesktopOnly": false
+}
